@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update person</title>
+</head>
+<body>
+
+<form autocomplete="off" th:object="${editdeveloper}" class="form" method="POST" th:action="@{/developer/{id}/edit(id=${editdeveloper.getId()})}">
+    <fieldset>
+        <div class="form-group">
+            <H4>Enter name</H4>
+            <input type="text" th:field="*{name}" class="form-control input-lg" title="name" autofocus="true" />
+        </div>
+        <div class="form-group">
+            <H4>Position</H4>
+            <select class="form-control input-lg" th:field="*{position}" name="position_id" autofocus="true">
+<!--            <select class="form-control input-lg" th:field="*{position_id}" name="position_id" autofocus="true">-->
+                <option value="0">select</option>
+                <option th:each="pos : ${position}" th:value="${pos.getId()}"
+                        th:text="${pos.getName()}"></option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Update">
+    </fieldset>
+</form>
+
+<!--<form th:method="PATCH" th:action="@{/people/{id}(id=${person.getId()})}" th:object="${person}">-->
+<!--    <label for="name">Enter name: </label>-->
+<!--    <input type="text" th:field="*{name}" id="name"/>-->
+<!--    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>-->
+<!--    <br/>-->
+<!--    <label for="age">Enter age: </label>-->
+<!--    <input type="text" th:field="*{age}" id="age"/>-->
+<!--    <div style="color:red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>-->
+<!--    <br/>-->
+<!--    <label for="email">Enter email: </label>-->
+<!--    <input type="text" th:field="*{email}" id="email"/>-->
+<!--    <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>-->
+<!--    <br/>-->
+<!--    <label for="address">Enter address: </label>-->
+<!--    <input type="text" th:field="*{address}" id="address"/>-->
+<!--    <div style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address error</div>-->
+<!--    <br/>-->
+<!--    <input type="submit" value="Update!"/>-->
+<!--</form>-->
+
+
+
+</body>
+</html>

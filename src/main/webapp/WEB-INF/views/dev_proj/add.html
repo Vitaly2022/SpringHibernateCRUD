@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+
+<form autocomplete="off" th:object="${addProjectForm}" class="form" method="POST">
+    <fieldset>
+        <div class="form-group">
+            <H4>Project</H4>>
+            <select class="form-control input-lg" th:field="*{name}" name="name" autofocus="true">
+                <option value="0">select</option>
+                <option th:each="add : ${addProjectForm}" th:value="${add.getId()}"
+                        th:text="${add.getName()}"></option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Add">
+    </fieldset>
+</form>
+
+</body>
+</html>
